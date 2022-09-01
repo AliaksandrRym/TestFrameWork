@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C0E462E5-143D-41CC-ADC1-13BD14CFA8EE}</ProjectGuid>
+    <ProjectGuid>{AE96B1EC-4D35-4994-A113-0FBDD1DA803F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TestFrameWork</RootNamespace>
-    <AssemblyName>TestFrameWork</AssemblyName>
+    <RootNamespace>UiGlobalQAPart</RootNamespace>
+    <AssemblyName>UiGlobalQAPart</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -34,7 +34,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
@@ -44,27 +43,30 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="WebDriver, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Selenium.WebDriver.4.4.0\lib\net47\WebDriver.dll</HintPath>
+      <HintPath>..\packages\Selenium.WebDriver.4.4.0\lib\net47\WebDriver.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DriverCore\Browser.cs" />
-    <Compile Include="DriverCore\BrowserFactory.cs" />
-    <Compile Include="DriverCore\Configuration.cs" />
-    <Compile Include="DriverCreators\ChromeDriverCreator.cs" />
-    <Compile Include="Enums\Browsers.cs" />
-    <Compile Include="Interfaces\IDriverCreate.cs" />
+    <Compile Include="Pages\BasePage.cs" />
+    <Compile Include="Pages\GlobalsqaHomePage.cs" />
+    <Compile Include="Pages\ProgressBarDownLoadPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TestFrameWork.csproj">
+      <Project>{C0E462E5-143D-41CC-ADC1-13BD14CFA8EE}</Project>
+      <Name>TestFrameWork</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="packages\Selenium.WebDriver.ChromeDriver.105.0.5195.5200\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('packages\Selenium.WebDriver.ChromeDriver.105.0.5195.5200\build\Selenium.WebDriver.ChromeDriver.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.105.0.5195.5200\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.105.0.5195.5200\build\Selenium.WebDriver.ChromeDriver.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('packages\Selenium.WebDriver.ChromeDriver.105.0.5195.5200\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Selenium.WebDriver.ChromeDriver.105.0.5195.5200\build\Selenium.WebDriver.ChromeDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.105.0.5195.5200\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.105.0.5195.5200\build\Selenium.WebDriver.ChromeDriver.targets'))" />
   </Target>
 </Project>
