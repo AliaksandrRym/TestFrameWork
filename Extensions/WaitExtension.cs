@@ -9,6 +9,9 @@
         public static IWebElement WaitForElement(this IWebDriver driver, By locator, int timeOut) =>
            new WebDriverWait(driver, TimeSpan.FromSeconds(timeOut)).Until<IWebElement>(d => d.FindElement(locator));
 
+        public static void WaitForElementDisplayed(this IWebDriver driver, By locator, int timeOut) =>
+            new WebDriverWait(driver, TimeSpan.FromSeconds(timeOut)).Until<bool>(d => d.FindElement(locator).Displayed == true);
+
         public static bool WaitElementTextEquals(this IWebDriver driver, By locator, int timeOut, string text) => 
             new WebDriverWait(driver, TimeSpan.FromSeconds((int) timeOut)).Until<bool>((Func<IWebDriver, bool>)(d => d.FindElement(locator).Text == text));
 

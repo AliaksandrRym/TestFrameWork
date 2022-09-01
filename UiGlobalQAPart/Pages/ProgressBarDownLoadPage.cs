@@ -18,9 +18,14 @@ namespace UiGlobalQAPart
 
 
         private IWebElement IframeConteiner => Browser.Driver.FindElement(IframeLocator);
+        private IWebElement DownLoadButton => Browser.Driver.FindElement(DownloadButtonLocator);
 
 
-        public void ClickDownloadButton() => Browser.Driver.SwitchTo().Frame(IframeConteiner).WaitForElement(DownloadButtonLocator, 10).Click();
+        public void ClickDownloadButton()
+        {
+            Browser.Driver.SwitchTo().Frame(IframeConteiner).WaitForElementDisplayed(DownloadButtonLocator, 15);
+            DownLoadButton.Click();
+        }
 
         public bool LoadingCompleteTextAppeared(string text) => Browser.Driver.WaitElementTextEquals(DialogProgressTextLocator, 30, text);
 
