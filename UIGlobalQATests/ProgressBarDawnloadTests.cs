@@ -7,7 +7,7 @@
     public class ProgressBarDawnloadTests: BaseTest
     {
         [TestMethod]
-        public void ProgressBarTest()
+        public void VerifyFileDownloadedTest()
         {   
             var progressBarPage = OpenHomePage().NavigateToProgressBarPage();
             progressBarPage.ClickDownloadButton();
