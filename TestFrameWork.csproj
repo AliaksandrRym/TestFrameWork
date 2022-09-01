@@ -53,6 +53,7 @@
     <Compile Include="DriverCore\Configuration.cs" />
     <Compile Include="DriverCreators\ChromeDriverCreator.cs" />
     <Compile Include="Enums\Browsers.cs" />
+    <Compile Include="Extensions\WaitExtension.cs" />
     <Compile Include="Interfaces\IDriverCreate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

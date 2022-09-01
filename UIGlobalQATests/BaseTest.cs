@@ -3,7 +3,6 @@ namespace UIGlobalQATests
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
-    using TestFrameWork;
     using TestFrameWork.DriverCore;
     using UiGlobalQAPart;
 
